@@ -2,7 +2,7 @@
 
 CC=cc -g -Wall -c
 
-# quand on tape "make" sans paramÃ¨tre 
+# quand on tape "make" sans paramètre 
 
 tout: recopie cryptage
 
@@ -35,8 +35,8 @@ recopie.o: recopie.c MachineCaracteres.h
 cryptage.o: cryptage.c Crypt.h MachineCaracteres.h LexMot.h
 	$(CC) cryptage.c
 	
-# pour faire le mÃ©nage 
+# pour faire le ménage 
 clean:
 	rm -f *~ *.o recopie cryptage
 
-## Avirer pour les Ã©tudiants (head -41 Makefile)
+

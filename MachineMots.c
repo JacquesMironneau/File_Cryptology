@@ -5,6 +5,7 @@
  * Avancement : à compléter
  */
 
+#include <stdio.h>
 #include <stdbool.h>
 #include "MachineCaracteres.h"
 #include "LexMot.h"
@@ -16,7 +17,9 @@ Mot motUsed;
 
 void demarrerMot(void)
 {
+    printf("lancement de démarrer mot\n");
    demarrerCar();
+   printf("Lancement avancer mot \n");
    avancerMot();
 }
 
@@ -24,14 +27,17 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
 {  
     int i = 0;
     avancerCar(); // On se rend sur le caractère 
-
-    while (carCourant() == ""){ // On avance tant que l'on parcourt des espaces
+    printf("On est avant le premier while");
+    while (carCourant() == ' '){ // On avance tant que l'on parcourt des espaces
         avancerCar();
-
+        printf("Dans le 1er while");
     }
-    while (carCourant() != ""){
+    while ((carCourant()  != '\n') && (i < 26)){
+        printf("Dans le second while");
         motUsed.tab[i] = carCourant();
+        printf("%c", motUsed.tab[i]);
         motUsed.lgm++;
+        i++;
 
 
     }

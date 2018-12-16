@@ -2,8 +2,8 @@
  * Programme principal de l'application de codage d'une suite de mots
  * Auteur(s)  :
  * Groupe TP  :
- * Entrées    : lecture de l'entrée standard (clavier)
- * Sorties    : écriture sur la sortie standard (écran)
+ * Entrï¿½es    : lecture de l'entrï¿½e standard (clavier)
+ * Sorties    : ï¿½criture sur la sortie standard (ï¿½cran)
  * Note       : Pour l'utiliser, taper :
  *                  cryptage < montexte.txt > montextecrypte.txt
  * Avancement :
@@ -18,7 +18,17 @@
 
 int main(void)
 {
-
+  demarrerMot();
+  printf("%d", motCour().lgm);
+/*
+  printf("c le dÃ©but");
+    demarrerMot();
+    
+    printf("le mot est dÃ©marrÃ©\n");
+    while (carCourant() != marque()){
+      printf("While de l'Ã©criture \n"); 
+      avancerMot();
+    }*/
 
 
 
