@@ -45,9 +45,7 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
             
             avancerCar();
         
-            if (carCourant()==' '){
-                break;
-            }
+        
             
         }
     // }    
