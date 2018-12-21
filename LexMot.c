@@ -10,9 +10,9 @@ void ecrireMot(Mot m)
 {
    /* Comme on a pris soin de terminer les mots par le caractères nul ('\0'),
     * on peut utiliser un simple printf */
-   printf("%s", m.tab);
-   /* Sinon il faudrait le faire caractère par caractère :
-   int i = 0;
+  printf("%s", m.tab);
+  //  Sinon il faudrait le faire caractère par caractère :
+  /* int i = 0;
    while (i < m.lgm) {
      putchar(m.tab[i]);
      i = i + 1;

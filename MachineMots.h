@@ -7,6 +7,7 @@
 #ifndef MACHINEMOTS_H
 #define MACHINEMOTS_H
 
+#define LF 10
 #include "LexMot.h"
 
 void demarrerMot(void);

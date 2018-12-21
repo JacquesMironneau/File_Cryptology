@@ -18,8 +18,13 @@
 
 int main(void)
 {
+  printf("%d", marque());
   demarrerMot();
-  printf("%d", motCour().lgm);
+  motCour();
+
+  while (1){
+    avancerMot();
+  }
 /*
   printf("c le début");
     demarrerMot();
