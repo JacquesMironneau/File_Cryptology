@@ -26,6 +26,8 @@ void demarrerMot(void)
 void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans motUsed
 {   
     // int inter = 0;
+   
+
     
     printf("@here => before 1st while\n\n\n\n");
 
@@ -37,36 +39,32 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
     motUsed.lgm = 0;
         
     // while (carCourant() != marque()){
-        while(carCourant() != ' ' ){
-            motUsed.tab[motUsed.lgm]=carCourant();
-            motUsed.lgm++;
-            printf("@here carCourant = %c\n", carCourant());
-            printf("@here motUsed.lgm = %d\n\n",motUsed.lgm);
+     
+
+    while(carCourant() != ' ' ){
+        motUsed.tab[motUsed.lgm]=carCourant();
+        motUsed.lgm++;
+        printf("@here carCourant = %c\n", carCourant());
+        printf("@here motUsed.lgm = %d\n\n",motUsed.lgm);
             
-            avancerCar();
-        
-        
-            
+        avancerCar();
         }
+        puts("je suis dans l'incompréhension");
     // }    
 
-        printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
-        motUsed.tab[motUsed.lgm+1]='\0';
+//Affichage debug 
+         printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
+         motUsed.tab[motUsed.lgm+1]='\0';
     
-        puts("@here before for loop");
-        printf("Longueur du mot : %d\n",motUsed.lgm);
-        ecrireMot(motUsed);
-        puts(" ");
+         puts("@here before for loop");
+         printf("Longueur du mot : %d\n",motUsed.lgm);
+         ecrireMot(motUsed);
+         puts(" ");
         
-        
-        while(carCourant() == ' '){ // On va jusqu'au mot suivant
+        while(carCourant() != ' '  && carCourant() != 3){ // On va jusqu'au mot suivant -> Non fonctionnel -> est probablement à l'origine du bordel
             puts("@here space skipped\n");
             avancerCar();
         }
-        
-    
-
-    
 }
 
 

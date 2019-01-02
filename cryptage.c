@@ -19,12 +19,14 @@
 int main(void)
 {
   printf("%d", marque());
-  demarrerMot();
-  motCour();
+  demarrerMot(); // Premier mot gérer
 
-  while (1){
-    avancerMot();
-  }
+
+ puts("@here start main first call of AvancerMot()"); // Prise en compte du second mot ^^.
+ 
+ 
+   avancerMot();
+      
 /*
   printf("c le début");
     demarrerMot();
