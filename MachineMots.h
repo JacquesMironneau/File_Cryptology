@@ -7,7 +7,7 @@
 #ifndef MACHINEMOTS_H
 #define MACHINEMOTS_H
 
-#define LF 0x0D
+#define LF 0x0A
 #define space 0x20
 #define EOT 0x2E
 #define NOVALUE 0x0

@@ -38,7 +38,7 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
     motUsed.lgm = 0; // Reset de la longueur pour le nouveau mot.
     
     if(carCourant() == LF) {
-        motUsed.tab[0] = carCourant();
+        motUsed.tab[motUsed.lgm] = '\n';
         // puts("Mot LF");
         avancerCar();
     }
