@@ -23,9 +23,12 @@ int main(void)
 
 
  puts("@here start main first call of AvancerMot()"); // Prise en compte du second mot ^^.
- 
- 
+ int i =0;
+ while(i!=10){
+   
    avancerMot();
+   i++;
+ }
       
 /*
   printf("c le début");

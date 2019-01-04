@@ -40,8 +40,8 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
         
     // while (carCourant() != marque()){
      
-
-    while(carCourant() != ' ' ){
+    // while(carCourant)
+    while(carCourant() != ' ' && carCourant() != 46 ){
         motUsed.tab[motUsed.lgm]=carCourant();
         motUsed.lgm++;
         printf("@here carCourant = %c\n", carCourant());
@@ -61,9 +61,12 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
          ecrireMot(motUsed);
          puts(" ");
         
-        while(carCourant() != ' '  && carCourant() != 3){ // On va jusqu'au mot suivant -> Non fonctionnel -> est probablement à l'origine du bordel
+        while(carCourant() == ' '  || carCourant() == 10){ // On ignore espaces et retour à la ligne
             puts("@here space skipped\n");
+            printf("JE CHIALE PUTAIN");
             avancerCar();
+          
+            puts("@here new car \n");
         }
 }
 
