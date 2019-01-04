@@ -26,48 +26,49 @@ void demarrerMot(void)
 void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans motUsed
 {   
 
-    printf("@here => before 1st while\n\n");
+    printf("@here => before 1st while\n\n"); // Affichage debug
 
-    while(carCourant() == 10 || carCourant() == 32 ){
-        puts("@here space skipped\n");
+
+    // Tant que le caractère courant est un espace ou un \n on avance sur le cractère suivant
+    while(carCourant() == 0x0A || carCourant() == 0x20 ){ 
+        puts("@here space or hard carriage return skipped\n"); // Affichage debug
         avancerCar();
     }
-    motUsed.lgm = 0;
-        
-    while(carCourant() != 10 && carCourant() != 46 && carCourant() != 32){
-        motUsed.tab[motUsed.lgm]=carCourant();
-        motUsed.lgm++;
-        printf("@here carCourant = %c\n", carCourant());
-        printf("@here motUsed.lgm = %d\n",motUsed.lgm);
+
+    motUsed.lgm = 0; // Reset de la longueur pour le nouveau mot.
+
+
+        // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
+    while(carCourant() != 0x0A && carCourant() != 0x2E && carCourant() != 0x20){ 
+        motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
+        motUsed.lgm++; // Incrémentation de la longueur
+        printf("@here carCourant = %c\n", carCourant()); // Affichage debug
+        printf("@here motUsed.lgm = %d\n",motUsed.lgm); // affichage debug
             
-        avancerCar();
+        avancerCar(); // Passage au caractère suivant
         }
 
+// Afin que EcrireMot fonctionne (à l'air de fonctionner)
+        //Potentiellement foireux : {
          printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
        
          motUsed.tab[motUsed.lgm]='\0';
           // Afin que ecrireMot fonctionne on ajoute un \0 en fin de mot (fictif)
-    
+        //  }
         
+
 //Affichage debug 
          printf("Longueur du mot : %d\n",motUsed.lgm);
          ecrireMot(motUsed);
          puts(" ");
         
-        while(carCourant() == 32  || carCourant() == 10){ // On ignore espaces et retour à la ligne
-            puts("@here space or hard carriage return skipped\n");
-
-            avancerCar(); // On passe au caractère suivant
-          
-            puts("@here new car \n");
-        }
 }
 
 
 
 
-
-Mot motCour(void) // Quand on l'appelle on motCour().lgm et motCour().tab[x]
+// Fonction qui renvoie le mot courant.
+Mot motCour(void) 
 {
   return motUsed;
 }

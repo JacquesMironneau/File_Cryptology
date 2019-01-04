@@ -23,11 +23,12 @@ int main(void)
 
 
  puts("@here start main first call of AvancerMot()"); // Prise en compte du second mot ^^.
- int i =0;
- while(i!=10){
+
+ while(carCourant() != 0x2E){
    
    avancerMot();
-   i++;
+   
+ 
  }
       
 /*
