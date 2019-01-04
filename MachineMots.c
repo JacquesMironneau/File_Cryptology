@@ -30,15 +30,20 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
 
 
     // Tant que le caractère courant est un espace ou un \n on avance sur le cractère suivant
-    while(carCourant() == 0x0A || carCourant() == 0x20 ){ 
+    while(carCourant() == space ){ 
         // puts("@here space or hard carriage return skipped\n"); // Affichage debug
         avancerCar();
     }
 
     motUsed.lgm = 0; // Reset de la longueur pour le nouveau mot.
-
-
-        // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
+    
+    if(carCourant() == LF) {
+        motUsed.tab[0] = carCourant();
+        // puts("Mot LF");
+        avancerCar();
+    }
+    else{
+               // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
     while(carCourant() != LF && carCourant() != EOT && carCourant() != space){ 
         motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
         motUsed.lgm++; // Incrémentation de la longueur
@@ -47,6 +52,9 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
             
         avancerCar(); // Passage au caractère suivant
         }
+    }
+
+ 
 
 // Afin que EcrireMot fonctionne (à l'air de fonctionner)
         //Potentiellement foireux : {
