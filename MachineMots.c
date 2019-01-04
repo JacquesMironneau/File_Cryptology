@@ -52,7 +52,7 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
         //Potentiellement foireux : {
         //  printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
        
-         motUsed.tab[motUsed.lgm]='\0';
+         motUsed.tab[motUsed.lgm]=0x0;
           // Afin que ecrireMot fonctionne on ajoute un \0 en fin de mot (fictif)
         //  }
         

@@ -1,3 +1,9 @@
 Bonjour toi
 
 ALlo ?.
+
+Space : 10 0x0A
+EOT : 46 0x2E
+Null: \0 0 0x0
+\n : 32 0x20
+

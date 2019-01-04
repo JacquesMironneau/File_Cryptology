@@ -7,7 +7,10 @@
 #ifndef MACHINEMOTS_H
 #define MACHINEMOTS_H
 
-#define LF 10
+#define LF 0x0A
+#define space 0x20
+#define EOT 0x03
+
 #include "LexMot.h"
 
 void demarrerMot(void);
