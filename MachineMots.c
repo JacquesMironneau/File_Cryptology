@@ -17,21 +17,21 @@ Mot motUsed;
 
 void demarrerMot(void)
 {
-    printf("lancement de démarrer mot\n");
+    // printf("lancement de démarrer mot\n");
     demarrerCar();
-    printf("Lancement avancer mot \n");
+    // printf("Lancement avancer mot \n");
     avancerMot();
 }
 
 void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans motUsed
 {   
 
-    printf("@here => before 1st while\n\n"); // Affichage debug
+    // printf("@here => before 1st while\n\n"); // Affichage debug
 
 
     // Tant que le caractère courant est un espace ou un \n on avance sur le cractère suivant
     while(carCourant() == 0x0A || carCourant() == 0x20 ){ 
-        puts("@here space or hard carriage return skipped\n"); // Affichage debug
+        // puts("@here space or hard carriage return skipped\n"); // Affichage debug
         avancerCar();
     }
 
@@ -42,15 +42,15 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
     while(carCourant() != 0x0A && carCourant() != 0x2E && carCourant() != 0x20){ 
         motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
         motUsed.lgm++; // Incrémentation de la longueur
-        printf("@here carCourant = %c\n", carCourant()); // Affichage debug
-        printf("@here motUsed.lgm = %d\n",motUsed.lgm); // affichage debug
+        // printf("@here carCourant = %c\n", carCourant()); // Affichage debug
+        // printf("@here motUsed.lgm = %d\n",motUsed.lgm); // affichage debug
             
         avancerCar(); // Passage au caractère suivant
         }
 
 // Afin que EcrireMot fonctionne (à l'air de fonctionner)
         //Potentiellement foireux : {
-         printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
+        //  printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
        
          motUsed.tab[motUsed.lgm]='\0';
           // Afin que ecrireMot fonctionne on ajoute un \0 en fin de mot (fictif)
@@ -58,9 +58,9 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
         
 
 //Affichage debug 
-         printf("Longueur du mot : %d\n",motUsed.lgm);
-         ecrireMot(motUsed);
-         puts(" ");
+        //  printf("Longueur du mot : %d\n",motUsed.lgm);
+        //  ecrireMot(motUsed);
+        //  puts(" ");
         
 }
 

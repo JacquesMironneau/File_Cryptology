@@ -18,30 +18,19 @@
 
 int main(void)
 {
-  printf("La marque est : %d \n", marque());
+  // printf("La marque est : %d \n", marque());
   demarrerMot(); // Premier mot gérer
 
 
- puts("@here start main first call of AvancerMot()"); // Prise en compte du second mot ^^.
+ puts("La phrase est : "); 
 
- while(carCourant() != 0x2E){
-   
+ while(carCourant() != 0x2E)
+ {
    avancerMot();
-   
- 
+   ecrireMot(motCour());
  }
-      
-/*
-  printf("c le début");
-    demarrerMot();
-    
-    printf("le mot est démarré\n");
-    while (carCourant() != marque()){
-      printf("While de l'écriture \n"); 
-      avancerMot();
-    }*/
-
-
+ 
+ puts(" ");
 
   return EXIT_SUCCESS;
 }
