@@ -39,7 +39,7 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
 
 
         // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
-    while(carCourant() != 0x0A && carCourant() != 0x2E && carCourant() != 0x20){ 
+    while(carCourant() != LF && carCourant() != EOT && carCourant() != space){ 
         motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
         motUsed.lgm++; // Incrémentation de la longueur
         // printf("@here carCourant = %c\n", carCourant()); // Affichage debug
@@ -52,7 +52,7 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
         //Potentiellement foireux : {
         //  printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
        
-         motUsed.tab[motUsed.lgm]=0x0;
+         motUsed.tab[motUsed.lgm]=NOVALUE;
           // Afin que ecrireMot fonctionne on ajoute un \0 en fin de mot (fictif)
         //  }
         
