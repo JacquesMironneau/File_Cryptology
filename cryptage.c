@@ -18,7 +18,7 @@
 
 int main(void)
 {
-  printf("%d", marque());
+  printf("La marque est : %d \n", marque());
   demarrerMot(); // Premier mot gérer
 
 

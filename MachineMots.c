@@ -25,46 +25,39 @@ void demarrerMot(void)
 
 void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans motUsed
 {   
-    // int inter = 0;
-   
 
-    
-    printf("@here => before 1st while\n\n\n\n");
+    printf("@here => before 1st while\n\n");
 
-    while(carCourant() == ' '){
+    while(carCourant() == 10 || carCourant() == 32 ){
         puts("@here space skipped\n");
         avancerCar();
     }
-    
     motUsed.lgm = 0;
         
-    // while (carCourant() != marque()){
-     
-    // while(carCourant)
-    while(carCourant() != ' ' && carCourant() != 46 ){
+    while(carCourant() != 10 && carCourant() != 46 && carCourant() != 32){
         motUsed.tab[motUsed.lgm]=carCourant();
         motUsed.lgm++;
         printf("@here carCourant = %c\n", carCourant());
-        printf("@here motUsed.lgm = %d\n\n",motUsed.lgm);
+        printf("@here motUsed.lgm = %d\n",motUsed.lgm);
             
         avancerCar();
         }
-        puts("je suis dans l'incompréhension");
-    // }    
 
-//Affichage debug 
          printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
-         motUsed.tab[motUsed.lgm+1]='\0';
+       
+         motUsed.tab[motUsed.lgm]='\0';
+          // Afin que ecrireMot fonctionne on ajoute un \0 en fin de mot (fictif)
     
-         puts("@here before for loop");
+        
+//Affichage debug 
          printf("Longueur du mot : %d\n",motUsed.lgm);
          ecrireMot(motUsed);
          puts(" ");
         
-        while(carCourant() == ' '  || carCourant() == 10){ // On ignore espaces et retour à la ligne
-            puts("@here space skipped\n");
-            printf("JE CHIALE PUTAIN");
-            avancerCar();
+        while(carCourant() == 32  || carCourant() == 10){ // On ignore espaces et retour à la ligne
+            puts("@here space or hard carriage return skipped\n");
+
+            avancerCar(); // On passe au caractère suivant
           
             puts("@here new car \n");
         }
