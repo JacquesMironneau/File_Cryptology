@@ -10,19 +10,17 @@
 #include "Crypt.h"
 
 
+Mot Cle;
 
 /* initCrypt : initialise le module de cryptage.
  * Entrées : aucune
  * Sorties : le mot clef est initialisé et ... */
 void initCrypt(void)
 {
-  puts("Bonjour !");
-  Mot Cle;
-  Cle.lgm = 4;
-  printf("Alors :%d", Cle.lgm);
+//tout ce qui concerne la clé (tableau de caractere et longueur
+  Cle.lgm = 5;
   Cle.tab[0] = 'C';
   Cle.tab[1] = 'I';
-
   Cle.tab[2] = 'T';
   Cle.tab[3] = 'R';
   Cle.tab[4] = 'O';
