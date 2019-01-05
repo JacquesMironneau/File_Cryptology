@@ -15,11 +15,15 @@
 #include "LexMot.h"
 #include "MachineMots.h"
 #include "Crypt.h"
+// #include "Crypt.c" // ALED
 
 int main(void)
 {
+  initCrypt();
   // printf("La marque est : %d \n", marque());
   demarrerMot(); // Premier mot gérer
+
+  
 
 
  puts("La phrase est : "); 

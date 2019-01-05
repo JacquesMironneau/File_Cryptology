@@ -4,15 +4,29 @@
  * Groupe TP  :
  * Avancement :
  */
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "LexMot.h"
 #include "Crypt.h"
+
+
 
 /* initCrypt : initialise le module de cryptage.
  * Entrées : aucune
  * Sorties : le mot clef est initialisé et ... */
 void initCrypt(void)
 {
+  puts("Bonjour !");
+  Mot Cle;
+  Cle.lgm = 4;
+  printf("Alors :%d", Cle.lgm);
+  Cle.tab[0] = 'C';
+  Cle.tab[1] = 'I';
+
+  Cle.tab[2] = 'T';
+  Cle.tab[3] = 'R';
+  Cle.tab[4] = 'O';
+  Cle.tab[5] = 'N';
 }
 
 /* crypterMot : codage d'un mot en utilisant le mot clef.
