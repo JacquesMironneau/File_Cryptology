@@ -15,7 +15,7 @@
 #include "LexMot.h"
 #include "MachineMots.h"
 #include "Crypt.h"
-// #include "Crypt.c" // ALED
+//#include "Crypt.c" // ALED
 
 int main(void)
 {

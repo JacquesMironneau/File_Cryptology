@@ -9,7 +9,7 @@
 #include "LexMot.h"
 #include "Crypt.h"
 
-
+void initCrypt(void); 
 Mot Cle;
 
 /* initCrypt : initialise le module de cryptage.
@@ -17,7 +17,7 @@ Mot Cle;
  * Sorties : le mot clef est initialisé et ... */
 void initCrypt(void)
 {
-//tout ce qui concerne la clé (tableau de caractere et longueur
+//tout ce qui concerne la clé (tableau de caractere et longueur)
   Cle.lgm = 5;
   Cle.tab[0] = 'C';
   Cle.tab[1] = 'I';
