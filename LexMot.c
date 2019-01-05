@@ -8,9 +8,7 @@
 
 void ecrireMot(Mot m)
 {
-  if(m.tab[0] == 0x0A){
-    printf("Mmmh");
-  }
+
    /* Comme on a pris soin de terminer les mots par le caractères nul ('\0'),
     * on peut utiliser un simple printf */
   printf("\"%s \"", m.tab);

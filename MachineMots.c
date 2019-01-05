@@ -13,6 +13,7 @@
 
 /* Mettre ici les variables globales */
 Mot motUsed;
+int i = 0;
 /* Fonctions et procédures */
 
 void demarrerMot(void)
@@ -38,9 +39,13 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
     motUsed.lgm = 0; // Reset de la longueur pour le nouveau mot.
     
     if(carCourant() == LF) {
+
+        i++;
+        // printf("On trouve %d", i);
         motUsed.tab[motUsed.lgm] = '\n';
         // puts("Mot LF");
         avancerCar();
+        motUsed.lgm +=1;
     }
     else{
                // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
