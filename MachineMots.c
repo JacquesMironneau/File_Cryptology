@@ -39,23 +39,25 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
     motUsed.lgm = 0; // Reset de la longueur pour le nouveau mot.
     
     if(carCourant() == LF) {
-
-        i++;
-        // printf("On trouve %d", i);
+    
         motUsed.tab[motUsed.lgm] = '\n';
         // puts("Mot LF");
         avancerCar();
-        motUsed.lgm +=1;
+        motUsed.lgm =1;
     }
     else{
-               // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
-    while(carCourant() != LF && carCourant() != EOT && carCourant() != space){ 
-        motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
-        motUsed.lgm++; // Incrémentation de la longueur
+        // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
+        
+        //!!!!CE WHILE NE PREND PAS EN COMPTE LE PREMIER MOT DE LA PHRASE ワニング
+        while(carCourant() != LF && carCourant() != EOT && carCourant() != space){ 
+            if(carCourant() > 0x41 && carCourant() < 0x5A){
+                motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
+                motUsed.lgm++; // Incrémentation de la longueur
         // printf("@here carCourant = %c\n", carCourant()); // Affichage debug
         // printf("@here motUsed.lgm = %d\n",motUsed.lgm); // affichage debug
             
-        avancerCar(); // Passage au caractère suivant
+                avancerCar(); // Passage au caractère suivant
+            }
         }
     }
 

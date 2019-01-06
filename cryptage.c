@@ -15,26 +15,32 @@
 #include "LexMot.h"
 #include "MachineMots.h"
 #include "Crypt.h"
-//#include "Crypt.c" // ALED
 
+void initCrypt(void);
+void crypterMot(Mot src, Mot *dst);
 int main(void)
 {
-  initCrypt();
+    Mot source;
+    Mot crypted;
+    
+    demarrerMot();
+    initCrypt();
+    puts("");
   // printf("La marque est : %d \n", marque());
-  demarrerMot(); // Premier mot gérer
+     // Premier mot gérer
 
-  
-
-
- puts("La phrase est : "); 
-
- while(carCourant() != 0x2E)
- {
-   avancerMot();
-   ecrireMot(motCour());
- }
+    
+    puts("La phrase est source est : "); 
+    while(carCourant() != 0x2E)
+    {
+        avancerMot();
+        ecrireMot(motCour());
+    }
  
- puts(" ");
+    puts(" ");
+    
+    
+    
 
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

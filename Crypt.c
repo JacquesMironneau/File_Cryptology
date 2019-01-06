@@ -8,44 +8,61 @@
 #include <stdlib.h>
 #include "LexMot.h"
 #include "Crypt.h"
+ 
+void ecrireMot(Mot m);
+//variables globales
 
-void initCrypt(void); 
-Mot Cle;
-
+Mot cle;
 /* initCrypt : initialise le module de cryptage.
  * Entrées : aucune
  * Sorties : le mot clef est initialisé et ... */
 void initCrypt(void)
 {
-//tout ce qui concerne la clé (tableau de caractere et longueur)
-  Cle.lgm = 5;
-  Cle.tab[0] = 'C';
-  Cle.tab[1] = 'I';
-  Cle.tab[2] = 'T';
-  Cle.tab[3] = 'R';
-  Cle.tab[4] = 'O';
-  Cle.tab[5] = 'N';
+//tout ce qui concerne la clé et sa création (tableau de caractere et longueur)
+    cle.lgm = 5;
+    cle.tab[0] = 'C';
+    cle.tab[1] = 'I';
+    cle.tab[2] = 'T';
+    cle.tab[3] = 'R';
+    cle.tab[4] = 'O';
+    cle.tab[5] = 'N';
+    
+    /*puts("La clé est :");
+    for (int f; f < 6; f++){
+        printf("%c",cle.tab[f]);
+    }
+    puts("\n");*/
+    ecrireMot(cle);
 }
 
 /* crypterMot : codage d'un mot en utilisant le mot clef.
  * Entrées : src le mot à coder
- * Sorties : dst le mot codé. */
+ * Sorties : dst le mot crypté. */
 void crypterMot(Mot src, Mot *dst)
 {
-  int i;
+    int i;
+    i=0;
 
-  /* version de test, simple recopie de src dans dst, donne un exemple de
-   * parcours de chaîne */
-  i = 0;
-  while (i < src.lgm)
-  {
+    /* version de test, simple recopie de src dans dst, donne un exemple de
+    * parcours de chaîne 
+    i = 0;
+    while (i < src.lgm)
+    {
+        (*dst).tab[i] = src.tab[i];
+        i = i + 1;
+    }
+    On copie aussi le '\0' de fin de chaîne 
+        (*dst).tab[i] = src.tab[i];
+        (*dst).lgm = src.lgm;*/
+    while(i < src.lgm){
+        (*dst).tab[i]=src.tab[i]+(cle.tab[i]-src.tab[i]);
+        i++;
+    }
+    
     (*dst).tab[i] = src.tab[i];
-    i = i + 1;
-  }
-  /* On copie aussi le '\0' de fin de chaîne */
-  (*dst).tab[i] = src.tab[i];
-  (*dst).lgm = src.lgm;
+    (*dst).lgm = src.lgm;
 }
+    
 
 /* decrypterMot : décodage d'un mot en utilisant le mot clef.
  * Entrées : src le mot à décoder
