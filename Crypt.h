@@ -11,5 +11,6 @@
 void demarrerMot(void);
 void avancerMot(void);
 Mot motCour(void);
+Mot cle;
 
 #endif	/* MACHINEMOTS_H */

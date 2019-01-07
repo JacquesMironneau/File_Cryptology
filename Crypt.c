@@ -12,7 +12,7 @@
 void ecrireMot(Mot m);
 //variables globales
 
-Mot cle;
+
 /* initCrypt : initialise le module de cryptage.
  * Entrées : aucune
  * Sorties : le mot clef est initialisé et ... */
@@ -42,7 +42,10 @@ void crypterMot(Mot src, Mot *dst)
 {
     int i;
     i=0;
-
+    if(src.lgm == 1){
+        printf("@here : hard carriage return !");
+    }
+    else{
     /* version de test, simple recopie de src dans dst, donne un exemple de
     * parcours de chaîne 
     i = 0;
@@ -54,13 +57,20 @@ void crypterMot(Mot src, Mot *dst)
     On copie aussi le '\0' de fin de chaîne 
         (*dst).tab[i] = src.tab[i];
         (*dst).lgm = src.lgm;*/
+
+
     while(i < src.lgm){
+        // puts("We are dans le while");
         (*dst).tab[i]=src.tab[i]+(cle.tab[i]-src.tab[i]);
         i++;
     }
     
     (*dst).tab[i] = src.tab[i];
     (*dst).lgm = src.lgm;
+    // puts("KO"); 
+    ecrireMot(*dst);
+    // puts("OK");
+    }
 }
     
 
