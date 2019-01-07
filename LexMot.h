@@ -12,7 +12,7 @@
 /* Structure mot associant un tableau de lettres et sa longueur */
 typedef struct {
   /* En C, on peut déclarer le tableau directement ici : */
-  char tab[LONGMAX];
+  unsigned char tab[LONGMAX];
   /* En C, on ne peut pas définir des types intervalles : */
   int lgm;
 } Mot;

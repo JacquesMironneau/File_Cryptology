@@ -18,6 +18,9 @@ void ecrireMot(Mot m);
  * Sorties : le mot clef est initialisé et ... */
 void initCrypt(void)
 {
+    //Roll de Clé
+
+
 //tout ce qui concerne la clé et sa création (tableau de caractere et longueur)
     cle.lgm = 5;
     cle.tab[0] = 'C';
@@ -43,7 +46,7 @@ void crypterMot(Mot src, Mot *dst)
     int i;
     i=0;
     if(src.lgm == 1){
-        printf("@here : hard carriage return !");
+        printf("\n");
     }
     else{
     /* version de test, simple recopie de src dans dst, donne un exemple de
@@ -58,10 +61,14 @@ void crypterMot(Mot src, Mot *dst)
         (*dst).tab[i] = src.tab[i];
         (*dst).lgm = src.lgm;*/
 
-
     while(i < src.lgm){
         // puts("We are dans le while");
-        (*dst).tab[i]=src.tab[i]+(cle.tab[i]-src.tab[i]);
+        (*dst).tab[i]=src.tab[i]+cle.tab[i];
+
+        if (dst->tab[i]>90){
+            dst->tab[i]=dst->tab[i]-90;
+        }
+        
         i++;
     }
     

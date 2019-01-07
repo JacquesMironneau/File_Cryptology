@@ -46,7 +46,7 @@ int main(void)
     while(carCourant() != 0x2E)
     {
         // puts("Allo");
-        printf("%c", carCourant());
+        // printf("%c", carCourant());
 
         avancerMot();
         // puts("we did it");
