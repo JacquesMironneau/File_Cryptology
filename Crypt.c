@@ -49,18 +49,6 @@ void crypterMot(Mot src, Mot *dst)
         printf("\n");
     }
     else{
-    /* version de test, simple recopie de src dans dst, donne un exemple de
-    * parcours de chaîne 
-    i = 0;
-    while (i < src.lgm)
-    {
-        (*dst).tab[i] = src.tab[i];
-        i = i + 1;
-    }
-    On copie aussi le '\0' de fin de chaîne 
-        (*dst).tab[i] = src.tab[i];
-        (*dst).lgm = src.lgm;*/
-
     while(i < src.lgm){
         // puts("We are dans le while");
         (*dst).tab[i]=src.tab[i]+cle.tab[i];
@@ -79,7 +67,21 @@ void crypterMot(Mot src, Mot *dst)
     // puts("OK");
     }
 }
-    
+   // ANCIEN CODE TEST DU SUJET DE BASE  
+    /* version de test, simple recopie de src dans dst, donne un exemple de
+    * parcours de chaîne 
+    i = 0;
+    while (i < src.lgm)
+    {
+        (*dst).tab[i] = src.tab[i];
+        i = i + 1;
+    }
+    On copie aussi le '\0' de fin de chaîne 
+        (*dst).tab[i] = src.tab[i];
+        (*dst).lgm = src.lgm;*/
+
+        //FIN DE L'ANCIEN CODE
+
 
 /* decrypterMot : décodage d'un mot en utilisant le mot clef.
  * Entrées : src le mot à décoder
