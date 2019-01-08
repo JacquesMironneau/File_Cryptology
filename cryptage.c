@@ -28,20 +28,21 @@ int main(void)
     // puts("#######Cryptage#######\n1)Cryptage\n2)Decryptage\n0)Sortie");
     demarrerMot();
     initCrypt();
-    puts("");
-    while(carCourant() != 0x2E)
+    // ecrireMot(crypted);
+    while(carCourant() != 0x03)
     {
         // puts("Allo");
         // printf("%c", carCourant());
 
         avancerMot();
         // puts("we did it");
-        //crypterMot(motCour(), &crypted );
-        crypterMot(motCour(), &crypted);
+        crypterMot(motCour(), &crypted );
+        decrypterMot(motCour(), &crypted);
         // ecrireMot(crypted);
 
         
     }
-    puts(".");
+
+    // printf("%c",0x03);
     return EXIT_SUCCESS;
 }

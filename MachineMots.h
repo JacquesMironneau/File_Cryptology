@@ -9,8 +9,9 @@
 
 #define LF 0x0A
 #define space 0x20
-#define EOT 0x2E
+#define EOT 0x03
 #define NOVALUE 0x0
+// #define SOT 0x01
 
 #include "LexMot.h"
 
