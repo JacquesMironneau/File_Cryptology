@@ -18,31 +18,17 @@
 
 void initCrypt(void);
 void crypterMot(Mot src, Mot *dst);
+void decrypterMot(Mot src, Mot *dst);
 
 int main(void)
 {
-    Mot source;
     Mot crypted;
-    Mot cle;
-
-    
+    // Mot cle;
+    Mot uncrypted;
+    // puts("#######Cryptage#######\n1)Cryptage\n2)Decryptage\n0)Sortie");
     demarrerMot();
     initCrypt();
     puts("");
-  // printf("La marque est : %d \n", marque());
-     // Premier mot gérer
-
-    
-    // puts("La phrase est source est : "); 
-    // while(carCourant() != 0x2E)
-    // {
-    //     avancerMot();
-    //     ecrireMot(motCour());
-    // }
- 
-    puts(" ");
-    puts("La phrase cryptée est : "); 
-
     while(carCourant() != 0x2E)
     {
         // puts("Allo");
@@ -50,13 +36,12 @@ int main(void)
 
         avancerMot();
         // puts("we did it");
-        crypterMot(motCour(), &crypted );
+        //crypterMot(motCour(), &crypted );
+        crypterMot(motCour(), &crypted);
         // ecrireMot(crypted);
-    }
- 
-    
-    
-    
 
+        
+    }
+    puts(".");
     return EXIT_SUCCESS;
 }
