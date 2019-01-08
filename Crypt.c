@@ -95,8 +95,6 @@ void decrypterMot(Mot src, Mot *dst){
             if(dst->tab[k] < 65){ // Si le résultat est inférieur à 'A' on l'ajuste afin qu'il ait la bonne valeur
                 dst->tab[k]=(dst->tab[k]+90)-64;
             }
-            else if (dst->tab[k]>90) // Si le résultat est supérieur à 'Z' on l'ajuste afin qu'il ait la bonne valeur
-                dst->tab[k]=dst->tab[k]-27;
 
             z++; // On avance sur la clé
             k++; // On avance sur le mot crypté
