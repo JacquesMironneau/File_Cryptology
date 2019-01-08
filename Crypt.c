@@ -58,7 +58,7 @@ void crypterMot(Mot src, Mot *dst){
             l++;
             k++;
 
-            if( l > cle.lgm) // On boucle la clé afin qu'elle ne recommence pas à chaque nouveau mot courant.
+            if( l > cle.lgm) //  Dans le cas où un mot est supérieur à la taille de la clé, on boucle celle-ci.
             { 
                 l = 0;
             }
