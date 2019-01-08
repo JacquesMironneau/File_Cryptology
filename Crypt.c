@@ -10,8 +10,11 @@
 #include "Crypt.h"
  
 void ecrireMot(Mot m);
-//variables globales
 
+//variables globales
+int l = 0;
+int k = 0;
+int z = 0;
 
 /* initCrypt : initialise le module de cryptage.
  * Entrées : aucune
@@ -35,72 +38,78 @@ void initCrypt(void)
         printf("%c",cle.tab[f]);
     }
     puts("\n");*/
-    ecrireMot(cle);
 }
 
 /* crypterMot : codage d'un mot en utilisant le mot clef.
  * Entrées : src le mot à coder
  * Sorties : dst le mot crypté. */
-void crypterMot(Mot src, Mot *dst)
-{
-    int i;
-    i=0;
-    if(src.lgm == 1){
-        printf("\n");
-    }
-    else{
-    while(i < src.lgm){
-        // puts("We are dans le while");
-        (*dst).tab[i]=src.tab[i]+cle.tab[i];
+void crypterMot(Mot src, Mot *dst){   
+    k = 0;
 
-        if (dst->tab[i]>90){
-            dst->tab[i]=dst->tab[i]-90;
-        }
-        
-        i++;
+    if(src.lgm == 1){ // OK
+        puts("");
     }
+
+    else{
+        while(k < src.lgm){
+        // printf("%d", l);
+        // puts("We are dans le while");
+            unsigned char srcI=src.tab[k]-64;
+            unsigned char cleI=cle.tab[l]-64;
+        
+            (*dst).tab[k]=(srcI + cleI) + 64;//On ajoute 64 pour retourner sur l'échelle ASCII
+            if(dst->tab[k] > 90){
+                dst->tab[k]=(dst->tab[k]-90)+64;//On ajoute 64 pour retourner sur l'échelle ASCII
+            }
+     
+        
+            l++;
+            k++;
+
+            if( l > cle.lgm) // Boucle infinie de la clé
+            { 
+                l = 0;
+            }
+
+        }
     
-    (*dst).tab[i] = src.tab[i];
-    (*dst).lgm = src.lgm;
+        (*dst).tab[k] = src.tab[k]; // Ajout \0
+        (*dst).lgm = src.lgm;
     // puts("KO"); 
-    ecrireMot(*dst);
+        ecrireMot(*dst);
     // puts("OK");
     }
 }
-   // ANCIEN CODE TEST DU SUJET DE BASE  
-    /* version de test, simple recopie de src dans dst, donne un exemple de
-    * parcours de chaîne 
-    i = 0;
-    while (i < src.lgm)
-    {
-        (*dst).tab[i] = src.tab[i];
-        i = i + 1;
+
+void decrypterMot(Mot src, Mot *dst){
+    k = 0;
+    // printf("Etat de z :%d\n", z);
+    if(src.lgm == 1){
+        puts("");
     }
-    On copie aussi le '\0' de fin de chaîne 
-        (*dst).tab[i] = src.tab[i];
-        (*dst).lgm = src.lgm;*/
 
-        //FIN DE L'ANCIEN CODE
+    else{
+        while(k < src.lgm){
+            unsigned char srcI=src.tab[k]-64;
+            unsigned char cleI=cle.tab[z]-64;
 
+            dst->tab[k]=(srcI-cleI)+64;
+            // printf("Le caractère décrypter est %c  \n", dst->tab[k]);
+            
+            if(dst->tab[k] < 65){
+                dst->tab[k]=(dst->tab[k]+90)-64;
+            }
+            z++;
+            k++;
 
-/* decrypterMot : décodage d'un mot en utilisant le mot clef.
- * Entrées : src le mot à décoder
- * Sorties : dst le mot décodé. */
-void decrypterMot(Mot src, Mot *dst)
-{
-  int i;
+            if(z>cle.lgm){
+                z=0;
+            }
+        }
+        dst->tab[k]=src.tab[k];
+        dst->lgm=src.lgm;
 
-  /* version de test, simple recopie de src dans dst, donne un autre exemple de
-   * parcours de chaîne */
-  i = 0;
-  while (src.tab[i] != '\0')
-  {
-    /* px->champ est équivalent à (*px).champ */
-    dst->tab[i] = src.tab[i];
-    i = i + 1;
-  }
-  /* On copie aussi le '\0' de fin de chaîne */
-  dst->tab[i] = src.tab[i];
-  dst->lgm = src.lgm;
+        ecrireMot(*dst);
+    }
 }
 
