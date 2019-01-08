@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
  * MachineMots : module de lecture mot par mot de l'entrée standard.
- * Auteur(s)  : 
- * Groupe TP  : 
+ * Auteur(s)  : Jacques Mironneau, Thomas Durand 
+ * Groupe TP  : 1B
  */
 
 #ifndef MACHINEMOTS_H

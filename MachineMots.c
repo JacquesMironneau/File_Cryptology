@@ -1,8 +1,8 @@
 /* ---------------------------------------------------------------------------
  * MachineMots : module de lecture mot par mot de l'entrée standard.
- * Auteur(s)  :
- * Groupe TP  :
- * Avancement : à compléter
+ * Auteur(s)  : Jacques Mironneau, Thomas Durand
+ * Groupe TP  : 1B
+ * Avancement : Terminé, Fonctionnel
  */
 
 #include <stdio.h>
@@ -11,50 +11,46 @@
 #include "LexMot.h"
 #include "MachineMots.h"
 
-/* Mettre ici les variables globales */
-Mot motUsed;
+/* Variables globales */
+Mot motUsed; // Mot qui sera utilisé dans la machineMot
 int i = 0;
 /* Fonctions et procédures */
 
+
+/*
+*demarrerMot : on se positionne sur le premier mot.
+*/
 void demarrerMot(void)
 {
-    //  printf("lancement de démarrer mot\n");
+    
     demarrerCar();
-    // printf("Lancement avancer mot \n");
     avancerMot();
 }
 
 void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans motUsed
 {   
 
-    //  printf("@here => before 1st while\n\n"); // Affichage debug
-
-
-    // Tant que le caractère courant est un espace ou un \n on avance sur le cractère suivant
+    // Tant que le caractère courant est un espace on avance sur le cractère suivant
     while(carCourant() == space ){ 
-        // puts("@here space or hard carriage return skipped\n"); // Affichage debug
         avancerCar();
     }
 
     motUsed.lgm = 0; // Reset de la longueur pour le nouveau mot.
     
-    if(carCourant() == LF) {
+    if(carCourant() == LF) { // Traitement des mots 'LF'
     
-        motUsed.tab[motUsed.lgm] = '\n';
-        // puts("Mot LF");
+        motUsed.tab[motUsed.lgm] = '\n'; 
         avancerCar();
         motUsed.lgm =1;
     }
     else{
         // On ne garde que les caractères hors {espace, EOT, \n}, puis on ajoute au mot les caractères et on incrémente sa longueur.
-        
-        //!!!!CE WHILE NE PREND PAS EN COMPTE LE PREMIER MOT DE LA PHRASE ワニング
+
         while(carCourant() != LF && carCourant() != marque() && carCourant() != space){ 
             if(carCourant() > 0x41 && carCourant() < 0x5A){
                 motUsed.tab[motUsed.lgm]=carCourant(); // Ajout d'une lettre ou d'un symbole au mot.
                 motUsed.lgm++; // Incrémentation de la longueur
-        // printf("@here carCourant = %c\n", carCourant()); // Affichage debug
-        // printf("@here motUsed.lgm = %d\n",motUsed.lgm); // affichage debug
+        
             
                 avancerCar(); // Passage au caractère suivant
             }
@@ -63,20 +59,9 @@ void avancerMot(void) // Création d'un mot et enregistrement de sa valeur deans
 
  
 
-// Afin que EcrireMot fonctionne (à l'air de fonctionner)
-        //Potentiellement foireux : {
-        //  printf("%d, %d", motUsed.lgm, motUsed.lgm+1);
+// Afin que EcrireMot fonctionne, on ajoute un 0 (0x0 défini dans MachineMots.h)
        
         motUsed.tab[motUsed.lgm]=NOVALUE;
-          // Afin que ecrireMot fonctionne on ajoute un \0 en fin de mot (fictif)
-        //  }
-        
-
-//Affichage debug 
-        //  printf("Longueur du mot : %d\n",motUsed.lgm);
-        //  ecrireMot(motUsed);
-        //  puts(" ");
-        
 }
 
 
