@@ -61,7 +61,7 @@ void crypterMot(Mot src, Mot *dst){
             if(dst->tab[k] > 90){
                 dst->tab[k]=(dst->tab[k]-90)+64;//On ajoute 64 pour retourner sur l'échelle ASCII
             }
-     
+            // dst->tab[k]= cle.tab[l]; //<- PERMET DE VOIR LA CLE SUR LE CODE
         
             l++;
             k++;
@@ -76,13 +76,15 @@ void crypterMot(Mot src, Mot *dst){
         (*dst).tab[k] = src.tab[k]; // Ajout \0
         (*dst).lgm = src.lgm;
     // puts("KO"); 
-        ecrireMot(*dst);
+        // ecrireMot(*dst);
     // puts("OK");
     }
 }
 
 void decrypterMot(Mot src, Mot *dst){
     k = 0;
+    // puts("Le mot est :");
+    // ecrireMot(src);
     // printf("Etat de z :%d\n", z);
     if(src.lgm == 1){
         puts("");
@@ -90,15 +92,19 @@ void decrypterMot(Mot src, Mot *dst){
 
     else{
         while(k < src.lgm){
+            // printf("(%c, %d)", src.tab[k], src.tab[k]);
             unsigned char srcI=src.tab[k]-64;
             unsigned char cleI=cle.tab[z]-64;
+            // printf("(%d, %d)", srcI, cleI);
 
             dst->tab[k]=(srcI-cleI)+64;
-            // printf("Le caractère décrypter est %c  \n", dst->tab[k]);
+            //  printf("Le caractère décrypter est %c  \n son srcl est %d, son clel est %c", dst->tab[k], srcI, cleI);
             
             if(dst->tab[k] < 65){
                 dst->tab[k]=(dst->tab[k]+90)-64;
             }
+            else if (dst->tab[k]>90)
+                dst->tab[k]=dst->tab[k]-27;
             z++;
             k++;
 
@@ -109,7 +115,7 @@ void decrypterMot(Mot src, Mot *dst){
         dst->tab[k]=src.tab[k];
         dst->lgm=src.lgm;
 
-        ecrireMot(*dst);
+        // ecrireMot(*dst);
     }
 }
 

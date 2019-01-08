@@ -25,8 +25,8 @@ int main(void)
     Mot crypted;
     // Mot cle;
     Mot uncrypted;
-    Mot tab2[50];
-    Mot tab3[50]; // AH OUAIS
+    Mot tab2[30];
+    Mot tab3[30]; // AH OUAIS
     int i,d = 0;
     // puts("#######Cryptage#######\n1)Cryptage\n2)Decryptage\n0)Sortie");
     demarrerMot();
@@ -37,46 +37,62 @@ int main(void)
         // puts("Allo");
         // printf("%c", carCourant());
 
-        avancerMot();
-        // puts("we did it");
-        crypterMot(motCour(), &crypted );
+        
+        if(motCour().tab[0] == '\n'){
+            tab2[i] = motCour();
+            tab3[d] = motCour();
+            i++;
+            d++;
+            avancerMot();
+        }
+        else{
+            crypterMot(motCour(), &crypted );
         tab2[i] = crypted;
         i++;
+        // puts(" \nCrypted est :");
+        // ecrireMot(crypted);
         
         //  ecrireMot(crypted);
         decrypterMot(crypted, &uncrypted);
         tab3[d] = uncrypted;
         d++;
-        //  ecrireMot(crypted);
+        // puts("\nUncrypted est :");
+        // ecrireMot(uncrypted);
+        // puts("");
+
+        avancerMot();
+        }
+        // puts("we did it");
+        // printf("aled");
+        
         
     }
 
-    puts("\n\n");
-    puts("Impression du tableau...");
+   
+    puts("Affichage version cryptée...");
     for(i=0; i <20; i++){
-        while(tab2[i-1].lgm == tab2[i].lgm)
-            i++;
+   
         for(int o=0; o <tab2[i].lgm; o++){
             putchar(tab2[i].tab[o]);
         }
-        puts("");
+        printf(" ");
     }
 
-    
+        
         puts("");
 
-        puts("Impression du second tableau...");
+        puts("Affichage version décryptée..");
         
     for(i=0; i <20; i++){
-        while(tab3[i-1].lgm == tab3[i].lgm)
-            i++;
+        
         for(int o=0; o <tab3[i].lgm; o++){
             putchar(tab3[i].tab[o]);
         }
-        puts("");
+        printf(" ");
 
         
     }
+    puts("");
     // printf("%c",0x03);
     return EXIT_SUCCESS;
 }
